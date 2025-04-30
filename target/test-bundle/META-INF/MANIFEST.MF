@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ranking-test
+Bundle-Version: 1.0.0
+Created-By: vespa container maven plugin
+Bundle-Name: ranking
+X-JDisc-Test-Bundle-Version: 1.0
+Bundle-Vendor: Yahoo!
+Bundle-ClassPath: .
+X-JDisc-Test-Bundle-Categories: 
+

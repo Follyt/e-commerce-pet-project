@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+X-JDisc-Vespa-Build-Version: 8.512.63
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ranking
+Bundle-Version: 1.0.0
+Created-By: vespa container maven plugin
+Bundle-Name: ranking
+Bundle-Vendor: Yahoo!
+Bundle-ClassPath: .
+
