@@ -46,12 +46,13 @@
     2) Склонируйте репозиторий:
     git clone https://github.com/Follyt/e-commerce-pet-project.git
     cd e-commerce-pet-project
-
-    3) Разверните Vespa:
-    vespa-deploy prepare src/main/application
-    vespa-deploy activate
     
-    4) Загрузите данные: 
+    3) Соберите проект используя мавен, командой mvn package
+
+    4) Разверните Vespa:
+    vespa deploy --wait 60 //or 300
+    
+    5) Загрузите данные: 
     vespa-feed-client --target http://localhost:8080 --file data/products.json
 
 
