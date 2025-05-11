@@ -20,6 +20,7 @@ public class UkrSearcher extends Searcher {
     private final Map<String, List<String>> synonymMap = new HashMap<>();
 
     public UkrSearcher() {
+        System.out.println("🔍 UkrSearcher initialized");
         loadSynonyms();
     }
 
@@ -46,7 +47,7 @@ public Result search(Query query, Execution execution) {
 
     // Разбиваем запрос на слова
     String[] tokens = queryStr.split("\\s+");
-List<Item> allTerms = new ArrayList<>();
+    List<Item> allTerms = new ArrayList<>();
 
 for (String token : tokens) {
     Set<String> allSynonyms = new HashSet<>();
@@ -58,6 +59,8 @@ for (String token : tokens) {
             allSynonyms.addAll(values);
         }
     });
+
+    System.out.println("Token: " + token + " -> Synonyms: " + allSynonyms);
 
     if (allSynonyms.size() > 1) {
         OrItem orItem = new OrItem();

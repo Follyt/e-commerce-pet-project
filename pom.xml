@@ -5,32 +5,42 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>ai.vespa.example</groupId>
-    
-    <artifactId>ranking</artifactId>  <!-- Note: When changing this, also change bundle names in services.xml -->
-    
+    <artifactId>ranking</artifactId>
     <version>1.0.0</version>
-    
     <packaging>container-plugin</packaging>
-    
+
     <parent>
         <groupId>com.yahoo.vespa</groupId>
         <artifactId>cloud-tenant-base</artifactId>
-        <version>[7,999)</version>  <!-- Use the latest Vespa release on each build -->
+        <version>[7,999)</version>
         <relativePath/>
     </parent>
-    
+
     <properties>
         <bundle-plugin.failOnWarnings>true</bundle-plugin.failOnWarnings>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <test.hide>true</test.hide>
     </properties>
-    
+
     <dependencies>
-      <dependency>
-          <groupId>org.json</groupId>
-          <artifactId>json</artifactId>
-          <version>20230618</version>
-      </dependency> 
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20230618</version>
+        </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
+
