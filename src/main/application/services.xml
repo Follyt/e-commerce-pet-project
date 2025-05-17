@@ -2,7 +2,13 @@
 <services version="1.0" xmlns:deploy="vespa" xmlns:preprocess="properties">
     <container id="default" version="1.0">
         <document-api/>
-        <search/>
+
+        <search>
+            <chain id="default" inherits="vespa">
+                <searcher id="com.example.search.SynonymSearcher" bundle="ranking" />
+            </chain>
+        </search>
+
         <nodes>
             <node hostalias="MyServer" />
         </nodes>
