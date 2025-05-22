@@ -27,6 +27,7 @@ public class SynonymSearcher extends Searcher {
                 }
                 // Парсим JSON-массив групп синонимов
                 // Этот блок в ите проходит по всем синонимическим группам, в йоте он вытаскивает каждый термин из группы и складывает их в синонимГруп
+                // Здесь групс - это синонимические группы, груп - это группа синонимов с какой-то одной группы синонимов
                 JSONArray groups = new JSONArray(sb.toString());
                 for (int i = 0; i < groups.length(); i++) {
                     JSONArray group = groups.getJSONArray(i);
@@ -102,8 +103,8 @@ public class SynonymSearcher extends Searcher {
             wasQuoted.add(inQuote);
         }
 
-        StringBuilder newQuery = new StringBuilder();
-        boolean synonymFound = false;
+        StringBuilder newQuery = new StringBuilder(); // Пустой объект, в который будем складывать поисковый запрос
+        boolean synonymFound = false; // Флажок, который мы будем менять на тру и оборачивать запрос в скобки для сбережения логики, если будет найден синоним
         for (int i = 0; i < tokens.size();) {
             String term = tokens.get(i);
             List<String> synGroup = null;
@@ -112,7 +113,7 @@ public class SynonymSearcher extends Searcher {
                 String twoWordPhrase = term + " " + tokens.get(i + 1);
                 if (synonymsMap.containsKey(twoWordPhrase)) {
                     synGroup = synonymsMap.get(twoWordPhrase);
-                    i += 2;  // пропускаем два токена, объединённых в фразу
+                    i += 2;  // пропускаем два токена, объединённых во фразу
                 }
             }
             // Если двухсловного синонима не найдено, проверяем одиночный токен
