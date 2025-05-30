@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-public class SynonymSearcher extends Searcher {
+public class SynSOtladka extends Searcher {
 
     private static final Map<String, String> termToCanonical = new HashMap<>();
     private static final Map<String, List<String>> canonicalToGroup = new HashMap<>();
@@ -82,26 +82,38 @@ public class SynonymSearcher extends Searcher {
             tokens.add(token.toString());
         }
 
+        System.out.println("▶️ Токены из запроса: " + tokens);
+
         StringBuilder newQuery = new StringBuilder();
         boolean synonymFound = false;
 
         for (int i = 0; i < tokens.size(); i++) {
             String term = tokens.get(i);
-            String canonical = termToCanonical.get(term.toLowerCase());
+            String lowerTerm = term.toLowerCase();
+            String canonical = termToCanonical.get(lowerTerm);
 
+            System.out.println("\n🔹 Обрабатываем токен: \"" + term + "\"");
             if (canonical != null) {
+                System.out.println("   ⤷ Найдена каноническая форма: " + canonical);
                 List<String> group = canonicalToGroup.get(canonical);
-                if (group != null && !group.isEmpty()) {
+                if (group != null) {
+                    System.out.println("   ⤷ Группа синонимов: " + group);
                     synonymFound = true;
-                    StringJoiner joiner = new StringJoiner(" OR ");
-                    for (String syn : group) {
-                        joiner.add(syn);
+                    newQuery.append("(");
+                    for (int j = 0; j < group.size(); j++) {
+                        String syn = group.get(j);
+                        newQuery.append(syn);
+                        if (j < group.size() - 1) {
+                            newQuery.append(" OR ");
+                        }
                     }
-                    newQuery.append("(").append(joiner.toString()).append(")");
+                    newQuery.append(")");
                 } else {
+                    System.out.println("   ⤷ ⚠️ Группа не найдена, вставляем оригинальное слово");
                     newQuery.append(term);
                 }
             } else {
+                System.out.println("   ⤷ ❌ Каноническая форма не найдена, вставляем как есть");
                 newQuery.append(term);
             }
 
@@ -110,33 +122,19 @@ public class SynonymSearcher extends Searcher {
             }
         }
 
-        return synonymFound ? "(" + newQuery.toString() + ")" : queryStr;
+        String finalQuery = synonymFound ? "(" + newQuery.toString() + ")" : queryStr;
+        System.out.println("\n✅ Финальный запрос: " + finalQuery);
+        return finalQuery;
     }
 
     public static void main(String[] args) {
-        termToCanonical.clear();
-        canonicalToGroup.clear();
+        // Пример запроса
+        String query = "купить айфон galaxy";
 
-        String canonical1 = "телефон";
-        List<String> group1 = Arrays.asList("телефон", "samsung");
-        canonicalToGroup.put(canonical1.toLowerCase(), group1);
-        for (String term : group1) {
-            termToCanonical.put(term.toLowerCase(), canonical1.toLowerCase());
-        }
-
-        System.out.println("После добавления первой группы");
-
-        String canonical2 = "самсунг";
-        List<String> group2 = Arrays.asList("самсунг", "samsung", "galaxy");
-        canonicalToGroup.put(canonical2.toLowerCase(), group2);
-        for (String term : group2) {
-            termToCanonical.put(term.toLowerCase(), canonical2.toLowerCase());
-        }
-
-        System.out.println("Готово");
-
-        SynonymSearcher searcher = new SynonymSearcher();
-        String result = searcher.rewriteQuery("айфон galaxy");
-        System.out.println("Результат: " + result);
+        // Запускаем вручную метод rewriteQuery
+        SynSOtladka searcher = new SynSOtladka();
+        searcher.rewriteQuery(query);
     }
+
+
 }
