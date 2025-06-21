@@ -24,7 +24,7 @@ import java.util.*;
 
 /**
  * Searcher implementation that expands query terms via a synonym dictionary.
- * Synonyms are loaded from /synonymsCopy.json on startup.
+ * Synonyms are loaded from /synonyms.json on startup.
  */
 public class SynonymSearcher extends Searcher {
 
@@ -36,7 +36,7 @@ public class SynonymSearcher extends Searcher {
     private static final Map<String, List<String>> canonicalToGroup = new HashMap<>();
 
     static {
-        log.info("Initializing SynonymSearcher and loading synonymsCopy.json");
+        log.info("Initializing SynonymSearcher and loading synonyms.json");
 
         ObjectMapper mapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -69,19 +69,19 @@ public class SynonymSearcher extends Searcher {
 
         mapper.registerModule(lowercaseModule);
 
-        // Load synonymsCopy.json from classpath
-        try (InputStream is = SynonymSearcher.class.getResourceAsStream("/synonymsCopy.json")) {
+        // Load synonyms.json from classpath
+        try (InputStream is = SynonymSearcher.class.getResourceAsStream("/synonyms.json")) {
             if (is == null) {
-                log.error("synonymsCopy.json not found");
-                throw new IllegalStateException("synonymsCopy.json not found");
+                log.error("synonyms.json not found");
+                throw new IllegalStateException("synonyms.json not found");
             }
 
             Map<String, List<String>> root;
             try {
                 root = mapper.readValue(is, new TypeReference<Map<String, List<String>>>() {});
-                log.info("Loaded synonymsCopy.json, {} entries", root.size());
+                log.info("Loaded synonyms.json, {} entries", root.size());
             } catch (IOException e) {
-                log.error("Failed to parse synonymsCopy.json", e);
+                log.error("Failed to parse synonyms.json", e);
                 throw new ExceptionInInitializerError(e);
             }
 
@@ -109,7 +109,7 @@ public class SynonymSearcher extends Searcher {
                     canonicalToGroup.size(), termToCanonical.size());
 
         } catch (IOException e) {
-            log.error("Error reading synonymsCopy.json", e);
+            log.error("Error reading synonyms.json", e);
             throw new ExceptionInInitializerError(e);
         }
     }
@@ -214,7 +214,7 @@ private static final BiMap<String, String> termToCanonical = HashBiMap.create();
 private static final Map<String, List<String>> canonicalToGroup = new HashMap<>();
 
 static {
-    log.info("Initializing SynonymSearcher and loading synonymsCopy.json");
+    log.info("Initializing SynonymSearcher and loading synonyms.json");
 
     ObjectMapper mapper = new ObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -247,19 +247,19 @@ static {
 
     mapper.registerModule(lowercaseModule);
 
-    // Load synonymsCopy.json from classpath
-    try (InputStream is = SynonymSearcher.class.getResourceAsStream("/synonymsCopy.json")) {
+    // Load synonyms.json from classpath
+    try (InputStream is = SynonymSearcher.class.getResourceAsStream("/synonyms.json")) {
         if (is == null) {
-            log.error("synonymsCopy.json not found");
-            throw new IllegalStateException("synonymsCopy.json not found");
+            log.error("synonyms.json not found");
+            throw new IllegalStateException("synonyms.json not found");
         }
 
         Map<String, List<String>> root;
         try {
             root = mapper.readValue(is, new TypeReference<Map<String, List<String>>>() {});
-            log.info("Loaded synonymsCopy.json, {} entries", root.size());
+            log.info("Loaded synonyms.json, {} entries", root.size());
         } catch (IOException e) {
-            log.error("Failed to parse synonymsCopy.json", e);
+            log.error("Failed to parse synonyms.json", e);
             throw new ExceptionInInitializerError(e);
         }
 
@@ -291,7 +291,7 @@ static {
                 canonicalToGroup.size(), termToCanonical.size());
 
     } catch (IOException e) {
-        log.error("Error reading synonymsCopy.json", e);
+        log.error("Error reading synonym.json", e);
         throw new ExceptionInInitializerError(e);
     }
 }

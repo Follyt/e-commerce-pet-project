@@ -1,0 +1,200 @@
+{
+  "10T": [
+    "OnePlus10T",
+    "oneplus10t",
+    "oneplus10t"
+  ],
+  "11": [
+    "OnePlus11",
+    "oneplus11",
+    "oneplus11",
+    "ванплас11"
+  ],
+  "9": [
+    "OnePlus9",
+    "oneplus9",
+    "oneplus9",
+    "ванплас9"
+  ],
+  "Nord": [
+    "OnePlusNord",
+    "oneplusnord",
+    "oneplusnord",
+    "ванпласнорд",
+    "норд"
+  ],
+  "327": [
+    "NB327",
+    "NewBalance327",
+    "nb327",
+    "newbalance327",
+    "ньюбаланс327"
+  ],
+  "574": [
+    "NB574",
+    "NewBalance574",
+    "nb574",
+    "newbalance574",
+    "ньюбаланс574"
+  ],
+  "990v5": [
+    "NB990v5",
+    "NewBalance990v5",
+    "nb990v5",
+    "newbalance990v5"
+  ],
+  "Air Force 1": [
+    "AF1",
+    "NikeAirForce1",
+    "af1",
+    "airforce1",
+    "nikeairforce1",
+    "найкэйрфорс1",
+    "эйрфорс1",
+    "эйрфорс1"
+  ],
+  "Air Max 90": [
+    "NikeAirMax90",
+    "airmax90",
+    "airmax90",
+    "nikeairmax90",
+    "найкэйрмакс90",
+    "эйрмакс90",
+    "эйрмакс90"
+  ],
+  "All Star Move": [
+    "ConverseAllStarMove",
+    "allstarmove",
+    "allstarmove",
+    "converseallstarmove",
+    "конверсолстармув",
+    "олстармув"
+  ],
+  "BI WMWG 91484 EU": [
+    "IndesitBIWMWG91484EU",
+    "indesitbiwmwg91484eu",
+    "индезитбиwmwg91484eu"
+  ],
+  "BIWMFG 71283 EU": [
+    "IndesitBIWMFG71283EU",
+    "indesitbiwmfg71283eu",
+    "индезитбиwmfg71283eu"
+  ],
+  "CC 9T65A": [
+    "HotpointCC9T65A",
+    "hotpointcc9t65a",
+    "Хотпойнтcc9t65a"
+  ],
+  "Classic Leather": [
+    "ReebokClassicLeather",
+    "classicleather",
+    "классиклэзер"
+  ],
+  "Crossover 3-6y": [
+    "NikeCrossover3-6y",
+    "nikecrossover3-6y",
+    "кайкрсовер3-6y",
+    "кайкрсовер36y",
+    "кайкрсовер36у",
+    "найксrossover36y"
+  ],
+  "Diva": [
+    "CandyDiva",
+    "candydева",
+    "кандидева"
+  ],
+  "G3": [
+    "AcerChromebook13",
+    "acerchromebook13"
+  ],
+  "GeForce GTX 1660 Super": [
+    "NvidiaGeForceGTX1660Super",
+    "geforcegtx1660super",
+    "nvidiageforcegtx1660super"
+  ],
+  "GS1157": [
+    "CybexGS1157",
+    "cybexgs1157"
+  ],
+  "Halosilk": [
+    "ReimaHalosilk",
+    "reimahalosilk"
+  ],
+  "Ice Watch": [
+    "IceWatchIce-Watch",
+    "icewatchice-watch",
+    "icewatch",
+    "icееwach",
+    "icеwach",
+    "эйсвач"
+  ],
+  "Influence": [
+    "BitfenixInfluence",
+    "bitfenixinfluence"
+  ],
+  "Ion 15": [
+    "SamsungIon15",
+    "samsungion15",
+    "самсунгион15"
+  ],
+  "King": [
+  "HPPortableDSddrive",
+  "hpportabledsddrive"
+],
+"MDT651P": [
+"AsusMDT651P",
+"asusmdt651p"
+],
+"NB 200": [
+"NewBalance200",
+"newbalance200"
+],
+"NB 860": [
+"NewBalance860",
+"newbalance860"
+],
+"NB 001": [
+"NewBalance001",
+"newbalance001"
+],
+"NB 420": [
+"NewBalance420",
+"newbalance420"
+],
+"Nintendo Switch": [
+"NintendoSwitch",
+"ніintendoSwitch"
+],
+"Nord": [
+"OnePlusNord",
+"oneplusnord",
+"oneplusnord",
+"ванпласнорд",
+"норд"
+],
+"P30 Pro": [
+"HuaweiP30Pro",
+"huaweip30pro",
+"хуауэйp30pro"
+],
+"RAM Memory": [
+"KingstonRAMMemory",
+"kingstonrammemory",
+"кingsetonrammemory"
+],
+"S Action": [
+"AcerAction",
+"aceraction"
+],
+"State": [
+"HPState",
+"hpstate"
+],
+"TDLR 7220LS": [
+"WhirlpoolTDLR7220LS",
+"whirlpooltdlr7220ls"
+],
+"Айфон":       ["iphone", "ипхон"],
+  "самсунг":     ["samsung"],
+  "galaxy a52":  ["гелексиа52", "гелекси", "самсунг гелекси"]
+}
